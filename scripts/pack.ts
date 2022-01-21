@@ -143,6 +143,7 @@ pipe(
   TE.chainFirst(() =>
     fs.existsSync(`./build/dts`) ? exec(`cp -r ./build/dts/* ./dist`) : TE.right(void 0)
   ),
+  TE.chainFirst(() => exec(`cp -r ../../licenses ./dist/_licenses`)),
   TE.chainFirst(() => writePackageJsonContent),
   TE.chainFirst(() => copyReadme),
   TE.fold(onLeft, onRight("pack succeeded!")),
