@@ -9,12 +9,12 @@
  * (http://www.apache.org/licenses/LICENSE-2.0).
  */
 
-import type { LinkedList } from "../definition"
+import type { List } from "../definition"
 import { _Nil } from "../definition"
 
 /**
- * Returns the empty `LinkedList`
+ * Returns the empty `List`
  */
-export function empty<A>(): LinkedList<A> {
+export function empty<A>(): List<A> {
   return _Nil
 }

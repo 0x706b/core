@@ -9,18 +9,12 @@
  * (http://www.apache.org/licenses/LICENSE-2.0).
  */
 
-import type { LinkedList } from "../definition"
+import type { List } from "../definition"
 import { isNil } from "../definition"
 
-export function unsafeLast<A>(self: LinkedList<A>): A | undefined {
+export function unsafeTail<A>(self: List<A>): List<A> | undefined {
   if (isNil(self)) {
     return undefined
   }
-  let these = self
-  let scout = self.tail
-  while (!isNil(scout)) {
-    these = scout
-    scout = scout.tail
-  }
-  return these.head
+  return self.tail
 }

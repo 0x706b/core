@@ -9,12 +9,12 @@
  * (http://www.apache.org/licenses/LICENSE-2.0).
  */
 
-import type { LinkedList } from "../definition"
+import type { List } from "../definition"
 import { isNil } from "../definition"
 
-export function unsafeTail<A>(self: LinkedList<A>): LinkedList<A> | undefined {
+export function unsafeHead<A>(self: List<A>): A | undefined {
   if (isNil(self)) {
     return undefined
   }
-  return self.tail
+  return self.head
 }

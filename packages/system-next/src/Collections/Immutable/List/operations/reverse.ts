@@ -9,20 +9,20 @@
  * (http://www.apache.org/licenses/LICENSE-2.0).
  */
 
-import type { LinkedList } from "../definition"
+import type { List } from "../definition"
 import { isNil } from "../definition"
+import { empty } from "./empty"
+import { prepend_ } from "./prepend"
 
 /**
- * @ets_data_first forEach_
+ * Reverses a `List`, returning a new `List`
  */
-export function forEach<A, U>(f: (a: A) => U): (self: LinkedList<A>) => void {
-  return (list) => forEach_(list, f)
-}
-
-export function forEach_<A, U>(self: LinkedList<A>, f: (a: A) => U): void {
+export function reverse<A>(self: List<A>): List<A> {
+  let result = empty<A>()
   let these = self
   while (!isNil(these)) {
-    f(these.head)
+    result = prepend_(result, these.head)
     these = these.tail
   }
+  return result
 }
